@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32210.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignPatterns", "DesignPatterns\DesignPatterns.csproj", "{6D451BD1-3C0D-4A4F-AF36-18803BFBC4BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesignPatterns", "DesignPatterns\DesignPatterns.csproj", "{6D451BD1-3C0D-4A4F-AF36-18803BFBC4BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignPatterns.AspNetCore", "DesignPatterns.AspNetCore\DesignPatterns.AspNetCore.csproj", "{472D4675-FA8E-4307-AC63-2C23AA804A11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignPatterns.Models", "DesignPatterns.Models\DesignPatterns.Models.csproj", "{F9A51D65-7CE5-46DD-AC24-77CAE6CC1DA9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{6D451BD1-3C0D-4A4F-AF36-18803BFBC4BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D451BD1-3C0D-4A4F-AF36-18803BFBC4BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D451BD1-3C0D-4A4F-AF36-18803BFBC4BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{472D4675-FA8E-4307-AC63-2C23AA804A11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{472D4675-FA8E-4307-AC63-2C23AA804A11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{472D4675-FA8E-4307-AC63-2C23AA804A11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{472D4675-FA8E-4307-AC63-2C23AA804A11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9A51D65-7CE5-46DD-AC24-77CAE6CC1DA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9A51D65-7CE5-46DD-AC24-77CAE6CC1DA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9A51D65-7CE5-46DD-AC24-77CAE6CC1DA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9A51D65-7CE5-46DD-AC24-77CAE6CC1DA9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
