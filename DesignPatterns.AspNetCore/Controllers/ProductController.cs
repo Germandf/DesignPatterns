@@ -5,15 +5,21 @@ namespace DesignPatterns.AspNetCore.Controllers
 {
     public class ProductController : Controller
     {
+        private LocalEarnFactory _localEarnFactory;
+        private ForeignEarnFactory _foreignEarnFactory;
+
+        public ProductController(LocalEarnFactory localEarnFactory, ForeignEarnFactory foreignEarnFactory)
+        {
+            // factories by dependency injection
+            _localEarnFactory = localEarnFactory;
+            _foreignEarnFactory = foreignEarnFactory;
+        }
+
         public IActionResult Index(decimal total)
         {
-            // factories
-            var localEarnFactory = new LocalEarnFactory(0.20m);
-            var foreignEarnFactory = new ForeignEarnFactory(0.30m, 20);
-
             // products
-            var localEarn = localEarnFactory.GetEarn();
-            var foreignEarn = foreignEarnFactory.GetEarn();
+            var localEarn = _localEarnFactory.GetEarn();
+            var foreignEarn = _foreignEarnFactory.GetEarn();
 
             // total
             ViewBag.localTotal = total + localEarn.Earn(total);
