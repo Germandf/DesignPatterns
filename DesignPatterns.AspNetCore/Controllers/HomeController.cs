@@ -1,6 +1,8 @@
 ﻿using DesignPatterns.AspNetCore.Configuration;
 using DesignPatterns.AspNetCore.Models;
-using DesignPatterns.Models.Singleton;
+using DesignPatterns.Repository;
+using DesignPatterns.Models.Data;
+using DesignPatterns.Tools.Singleton;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using System.Diagnostics;
@@ -11,17 +13,20 @@ public class HomeController : Controller
 {
     private readonly IOptions<AppSettings> _appSettings;
     private readonly Log _logger;
+    private readonly IRepository<Product> _productRepository;
 
-    public HomeController(IOptions<AppSettings> appSettings)
+    public HomeController(IOptions<AppSettings> appSettings, IRepository<Product> productRepository)
     {
         _appSettings = appSettings;
         _logger = Log.GetInstance(_appSettings.Value.PathLog);
+        _productRepository = productRepository;
     }
 
     public IActionResult Index()
     {
         _logger.Save("Entered Index");
-        return View();
+        var products = _productRepository.Get();
+        return View("Index", products);
     }
 
     public IActionResult Privacy()

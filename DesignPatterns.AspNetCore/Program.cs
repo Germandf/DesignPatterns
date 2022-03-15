@@ -1,5 +1,7 @@
 using DesignPatterns.AspNetCore.Configuration;
-using DesignPatterns.Models.FactoryMethod;
+using DesignPatterns.Repository;
+using DesignPatterns.Models.Data;
+using DesignPatterns.Tools.FactoryMethod;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +12,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.Configure<AppSettings>(builder.Configuration.GetSection(nameof(AppSettings)));
 builder.Services.AddTransient((factory) => new LocalEarnFactory(appSettings.LocalPercentage));
 builder.Services.AddTransient((factory) => new ForeignEarnFactory(appSettings.ForeignPercentage, appSettings.Extra));
+builder.Services.AddDbContext<DesignPatternsContext>();
+builder.Services.AddScoped(typeof(IRepository<>),typeof(Repository<>));
 
 var app = builder.Build();
 

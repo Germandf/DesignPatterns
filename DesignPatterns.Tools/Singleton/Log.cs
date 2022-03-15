@@ -1,4 +1,4 @@
-﻿namespace DesignPatterns.Models.Singleton;
+﻿namespace DesignPatterns.Tools.Singleton;
 
 public sealed class Log
 {

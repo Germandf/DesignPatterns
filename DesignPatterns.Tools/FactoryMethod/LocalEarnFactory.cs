@@ -1,4 +1,4 @@
-﻿namespace DesignPatterns.Models.FactoryMethod;
+﻿namespace DesignPatterns.Tools.FactoryMethod;
 
 public class LocalEarnFactory : EarnFactory
 {
