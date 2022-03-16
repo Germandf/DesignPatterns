@@ -14,6 +14,7 @@ builder.Services.AddTransient((factory) => new LocalEarnFactory(appSettings.Loca
 builder.Services.AddTransient((factory) => new ForeignEarnFactory(appSettings.ForeignPercentage, appSettings.Extra));
 builder.Services.AddDbContext<DesignPatternsContext>();
 builder.Services.AddScoped(typeof(IRepository<>),typeof(Repository<>));
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 var app = builder.Build();
 

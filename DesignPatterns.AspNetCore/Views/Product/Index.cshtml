@@ -1,13 +1,23 @@
-﻿@{
-    decimal localTotal = (decimal)ViewBag.localTotal;
-    decimal foreignTotal = (decimal)ViewBag.foreignTotal;
-}
+﻿@model IEnumerable<ProductViewModel>
 
 <div class="row">
     <div class="col-12">
-        <label>Local total:</label>
-        <b>@localTotal</b><br/>
-        <label>Foreign total:</label>
-        <b>@foreignTotal</b><br/>
+        <a class="btn btn-primary" href="product/add">New product</a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <table class="table">
+            <tr>
+                <th>Name</th>
+            </tr>
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td>@product.Name</td>
+                </tr>
+            }
+        </table>
     </div>
 </div>

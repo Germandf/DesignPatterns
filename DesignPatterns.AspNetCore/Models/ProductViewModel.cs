@@ -1,9 +1,8 @@
-﻿namespace DesignPatterns.Models;
+﻿namespace DesignPatterns.AspNetCore.Models;
 
-public class Product
+public class ProductViewModel
 {
     public int Id { get; set; }
     public string Name { get; set; } = null!;
     public string Description { get; set; } = null!;
-    public Brand? Brand { get; set; } = null!;
 }
