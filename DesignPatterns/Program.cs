@@ -1,12 +1,13 @@
 ﻿using DesignPatterns.DesignPatterns.Repository;
+using DesignPatterns.DesignPatterns.Strategy;
 using DesignPatterns.DesignPatterns.UnitOfWork;
 using DesignPatterns.Models;
 
 Console.WriteLine("Hello world!");
 
-using (var context = new DesignPatternsContext())
+using (var dpContext = new DesignPatternsContext())
 {
-    var productRepository = new ProductRepository(context);
+    var productRepository = new ProductRepository(dpContext);
     var productToAdd = new Product() { Name = "Smartphone", Description="Cheap and powerfull" };
     productRepository.Add(productToAdd);
     productRepository.Save();
@@ -15,7 +16,7 @@ using (var context = new DesignPatternsContext())
         Console.WriteLine(product.Name);
     }
 
-    var brandRepository = new Repository<Brand>(context);
+    var brandRepository = new Repository<Brand>(dpContext);
     var brandToAdd = new Brand { Name = "Xiaomi" };
     brandRepository.Add(brandToAdd);
     brandRepository.Save();
@@ -24,7 +25,7 @@ using (var context = new DesignPatternsContext())
         Console.WriteLine(brand.Name);
     }
 
-    var unitOfWork = new UnitOfWork(context);
+    var unitOfWork = new UnitOfWork(dpContext);
 
     var products = unitOfWork.Products;
     var productToAdd2 = new Product() { Name = "Tv", Description = "Normal" };
@@ -36,3 +37,8 @@ using (var context = new DesignPatternsContext())
 
     unitOfWork.Save();
 }
+
+var context = new Context(new CarStrategy());
+context.Run();
+context.Strategy = new MotorcycleStrategy();
+context.Run();
