@@ -2,6 +2,7 @@ using DesignPatterns.AspNetCore.Configuration;
 using DesignPatterns.Repository;
 using DesignPatterns.Models.Data;
 using DesignPatterns.Tools.FactoryMethod;
+using DesignPatterns.Tools.Builder;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +16,7 @@ builder.Services.AddTransient((factory) => new ForeignEarnFactory(appSettings.Fo
 builder.Services.AddDbContext<DesignPatternsContext>();
 builder.Services.AddScoped(typeof(IRepository<>),typeof(Repository<>));
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<GeneratorConcreteBuilder>();
 
 var app = builder.Build();
 

@@ -1,4 +1,5 @@
-﻿using DesignPatterns.DesignPatterns.Repository;
+﻿using DesignPatterns.DesignPatterns.Builder;
+using DesignPatterns.DesignPatterns.Repository;
 using DesignPatterns.DesignPatterns.Strategy;
 using DesignPatterns.DesignPatterns.UnitOfWork;
 using DesignPatterns.Models;
@@ -42,3 +43,9 @@ var context = new Context(new CarStrategy());
 context.Run();
 context.Strategy = new MotorcycleStrategy();
 context.Run();
+
+var builder = new AlcoholicDrinkConcreteBuilder();
+var barmanDirector = new BarmanDirector(builder);
+barmanDirector.PrepareMargarita();
+var drink = builder.GetDrink();
+Console.WriteLine(drink.Result);
