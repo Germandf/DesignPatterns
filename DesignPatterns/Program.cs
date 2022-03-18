@@ -1,5 +1,6 @@
 ﻿using DesignPatterns.DesignPatterns.Builder;
 using DesignPatterns.DesignPatterns.Repository;
+using DesignPatterns.DesignPatterns.State;
 using DesignPatterns.DesignPatterns.Strategy;
 using DesignPatterns.DesignPatterns.UnitOfWork;
 using DesignPatterns.Models;
@@ -49,3 +50,14 @@ var barmanDirector = new BarmanDirector(builder);
 barmanDirector.PrepareMargarita();
 var drink = builder.GetDrink();
 Console.WriteLine(drink.Result);
+
+var customer = new Customer();
+Console.WriteLine(customer.GetState());
+customer.Request(100);
+Console.WriteLine(customer.GetState());
+customer.Request(50);
+Console.WriteLine(customer.GetState());
+customer.Request(50);
+Console.WriteLine(customer.GetState());
+customer.Request(50);
+Console.WriteLine(customer.GetState());
